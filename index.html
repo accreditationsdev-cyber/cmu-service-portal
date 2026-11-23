@@ -383,86 +383,101 @@
 
     <h2 class="text-2xl font-bold text-white">Need help? Contact the CMU Specialist team</h2>
     <p class="mt-2 max-w-2xl text-[15px]" style="color:#C7D8EE;">
-      Find your group in the "Covers" list below and reach out to your assigned specialist.
+      Find your group in the "Covers" list, then click your specialist to see how to reach them.
     </p>
 
-    <!-- ===== COST MANAGEMENT SPECIALISTS ===== -->
+    <!-- ===== COST MANAGEMENT SPECIALISTS (click a card to reveal Email / Viber) ===== -->
     <section aria-labelledby="specialists-title" class="mt-8">
       <h3 id="specialists-title" class="mb-4 text-lg font-semibold text-white">Your Cost Management Specialist</h3>
-      <div class="grid gap-5 md:grid-cols-3">
-      <article class="flex flex-col rounded-2xl border border-[#234B75] bg-[#123A63] p-5 transition duration-200 hover:-translate-y-1 hover:border-[#00A3E0] hover:shadow-[0_14px_28px_-12px_rgba(0,163,224,0.45)] motion-reduce:transition-none motion-reduce:hover:translate-y-0">
-        <h4 class="text-lg font-semibold text-white">Kier James Mariquit</h4>
-        <p class="text-sm text-[#9FD6F2]">Cost Management Specialist</p>
-        <p class="mt-4 text-xs font-semibold text-[#9FD6F2]">Covers</p>
-        <ul class="mt-2 flex flex-wrap gap-2" aria-label="Groups covered by Kier James Mariquit"><li class="rounded-full border border-[#00A3E0]/40 bg-[#00A3E0]/15 px-2.5 py-1 text-[13px] leading-none text-[#CFEEFB]">GST-1 (DIV1)</li><li class="rounded-full border border-[#00A3E0]/40 bg-[#00A3E0]/15 px-2.5 py-1 text-[13px] leading-none text-[#CFEEFB]">GST-1 (DIV2)</li><li class="rounded-full border border-[#00A3E0]/40 bg-[#00A3E0]/15 px-2.5 py-1 text-[13px] leading-none text-[#CFEEFB]">GST-3 (DIV1)</li><li class="rounded-full border border-[#00A3E0]/40 bg-[#00A3E0]/15 px-2.5 py-1 text-[13px] leading-none text-[#CFEEFB]">GST-3 (DIV2)</li><li class="rounded-full border border-[#00A3E0]/40 bg-[#00A3E0]/15 px-2.5 py-1 text-[13px] leading-none text-[#CFEEFB]">GST-3 (DIV3)</li><li class="rounded-full border border-[#00A3E0]/40 bg-[#00A3E0]/15 px-2.5 py-1 text-[13px] leading-none text-[#CFEEFB]">GST-3 (DIV4)</li></ul>
-        <div class="mt-auto pt-5">
-          <div class="grid grid-cols-2 gap-2">
-            <a class="inline-flex items-center justify-center gap-2 rounded-lg px-3.5 py-2.5 text-sm font-semibold no-underline transition duration-150 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7FD4F5] border border-[#4A76A8] bg-white/5 text-white hover:bg-white hover:text-[#0B2A4A]" href="mailto:kjmariquit@century-phirst.com" aria-label="Email Kier James Mariquit"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5h14a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2zm-2 2l9 6 9-6"/></svg><span>Email</span></a>
-            <!-- Viber deep link: opens the Viber app (mobile or desktop) on a chat with this number -->
-            <a class="inline-flex items-center justify-center gap-2 rounded-lg px-3.5 py-2.5 text-sm font-semibold no-underline transition duration-150 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7FD4F5] border border-transparent bg-[#00A3E0] text-[#0B2A4A] hover:bg-[#4CC3F0]" href="viber://chat?number=%2B639167496936" aria-label="Chat with Kier James Mariquit on Viber"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 10h.01M12 10h.01M16 10h.01M21 12c0 4.418-4.03 8-9 8a9.86 9.86 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg><span>Viber chat</span></a>
-          </div>
-          <p class="mt-3 text-[13px] text-[#B8CCE3]">kjmariquit@century-phirst.com<br>Viber: +63 916 749 6936</p>
+      <div class="grid items-start gap-5 md:grid-cols-3">
+      <details class="cmu-contact group rounded-2xl border border-[#234B75] bg-[#123A63] p-5 transition duration-200 hover:-translate-y-1 hover:border-[#00A3E0] hover:shadow-[0_14px_28px_-12px_rgba(0,163,224,0.45)] motion-reduce:transition-none motion-reduce:hover:translate-y-0" name="cmu-contact">
+        <summary class="cursor-pointer rounded-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7FD4F5]">
+          <span class="block text-lg font-semibold text-white">Kier James Mariquit</span>
+          <span class="block text-sm text-[#9FD6F2]">Cost Management Specialist</span>
+          <span class="mt-4 block text-xs font-semibold text-[#9FD6F2]">Covers</span>
+          <span class="mt-2 flex flex-wrap gap-2"><span class="rounded-full border border-[#00A3E0]/40 bg-[#00A3E0]/15 px-2.5 py-1 text-[13px] leading-none text-[#CFEEFB]">GST-1 (DIV1)</span><span class="rounded-full border border-[#00A3E0]/40 bg-[#00A3E0]/15 px-2.5 py-1 text-[13px] leading-none text-[#CFEEFB]">GST-1 (DIV2)</span><span class="rounded-full border border-[#00A3E0]/40 bg-[#00A3E0]/15 px-2.5 py-1 text-[13px] leading-none text-[#CFEEFB]">GST-3 (DIV1)</span><span class="rounded-full border border-[#00A3E0]/40 bg-[#00A3E0]/15 px-2.5 py-1 text-[13px] leading-none text-[#CFEEFB]">GST-3 (DIV2)</span><span class="rounded-full border border-[#00A3E0]/40 bg-[#00A3E0]/15 px-2.5 py-1 text-[13px] leading-none text-[#CFEEFB]">GST-3 (DIV3)</span><span class="rounded-full border border-[#00A3E0]/40 bg-[#00A3E0]/15 px-2.5 py-1 text-[13px] leading-none text-[#CFEEFB]">GST-3 (DIV4)</span></span>
+          <span class="mt-4 flex items-center justify-between rounded-lg border border-[#3A6494] px-3.5 py-2.5 text-sm font-semibold text-white transition duration-150 group-hover:bg-white/10">
+            <span class="cmu-lbl-closed">Click to Contact</span>
+            <span class="cmu-lbl-open">Hide contact options</span>
+            <svg class="cmu-chevron" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </span>
+        </summary>
+        <div class="cmu-panel grid grid-cols-2 gap-2 pt-4">
+          <a class="inline-flex items-center justify-center gap-2 rounded-lg px-3.5 py-2.5 text-sm font-semibold no-underline transition duration-150 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7FD4F5] border border-[#4A76A8] bg-white/5 text-white hover:bg-white hover:text-[#0B2A4A]" href="mailto:kjmariquit@century-phirst.com" aria-label="Email Kier James Mariquit"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5h14a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2zm-2 2l9 6 9-6"/></svg><span>Email</span></a>
+          <a class="inline-flex items-center justify-center gap-2 rounded-lg px-3.5 py-2.5 text-sm font-semibold no-underline transition duration-150 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7FD4F5] border border-transparent bg-[#00A3E0] text-[#0B2A4A] hover:bg-[#4CC3F0]" href="viber://chat?number=%2B639167496936" aria-label="Chat with Kier James Mariquit on Viber"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 10h.01M12 10h.01M16 10h.01M21 12c0 4.418-4.03 8-9 8a9.86 9.86 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg><span>Viber chat</span></a>
         </div>
-      </article>
-      <article class="flex flex-col rounded-2xl border border-[#234B75] bg-[#123A63] p-5 transition duration-200 hover:-translate-y-1 hover:border-[#00A3E0] hover:shadow-[0_14px_28px_-12px_rgba(0,163,224,0.45)] motion-reduce:transition-none motion-reduce:hover:translate-y-0">
-        <h4 class="text-lg font-semibold text-white">Ma. Christine P. Cruz</h4>
-        <p class="text-sm text-[#9FD6F2]">Cost Management Specialist</p>
-        <p class="mt-4 text-xs font-semibold text-[#9FD6F2]">Covers</p>
-        <ul class="mt-2 flex flex-wrap gap-2" aria-label="Groups covered by Ma. Christine P. Cruz"><li class="rounded-full border border-[#00A3E0]/40 bg-[#00A3E0]/15 px-2.5 py-1 text-[13px] leading-none text-[#CFEEFB]">GST-1 (DIV3)</li><li class="rounded-full border border-[#00A3E0]/40 bg-[#00A3E0]/15 px-2.5 py-1 text-[13px] leading-none text-[#CFEEFB]">GST-1 (DIV4)</li><li class="rounded-full border border-[#00A3E0]/40 bg-[#00A3E0]/15 px-2.5 py-1 text-[13px] leading-none text-[#CFEEFB]">GST-2 (DIV1)</li><li class="rounded-full border border-[#00A3E0]/40 bg-[#00A3E0]/15 px-2.5 py-1 text-[13px] leading-none text-[#CFEEFB]">GST-2 (DIV2)</li><li class="rounded-full border border-[#00A3E0]/40 bg-[#00A3E0]/15 px-2.5 py-1 text-[13px] leading-none text-[#CFEEFB]">GST-2 (DIV3)</li><li class="rounded-full border border-[#00A3E0]/40 bg-[#00A3E0]/15 px-2.5 py-1 text-[13px] leading-none text-[#CFEEFB]">GST-2 (DIV4)</li></ul>
-        <div class="mt-auto pt-5">
-          <div class="grid grid-cols-2 gap-2">
-            <a class="inline-flex items-center justify-center gap-2 rounded-lg px-3.5 py-2.5 text-sm font-semibold no-underline transition duration-150 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7FD4F5] border border-[#4A76A8] bg-white/5 text-white hover:bg-white hover:text-[#0B2A4A]" href="mailto:christine.cruz@century-phirst.com" aria-label="Email Ma. Christine P. Cruz"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5h14a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2zm-2 2l9 6 9-6"/></svg><span>Email</span></a>
-            <!-- Viber deep link: opens the Viber app (mobile or desktop) on a chat with this number -->
-            <a class="inline-flex items-center justify-center gap-2 rounded-lg px-3.5 py-2.5 text-sm font-semibold no-underline transition duration-150 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7FD4F5] border border-transparent bg-[#00A3E0] text-[#0B2A4A] hover:bg-[#4CC3F0]" href="viber://chat?number=%2B639202538308" aria-label="Chat with Ma. Christine P. Cruz on Viber"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 10h.01M12 10h.01M16 10h.01M21 12c0 4.418-4.03 8-9 8a9.86 9.86 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg><span>Viber chat</span></a>
-          </div>
-          <p class="mt-3 text-[13px] text-[#B8CCE3]">christine.cruz@century-phirst.com<br>Viber: +63 920 253 8308</p>
+      </details>
+      <details class="cmu-contact group rounded-2xl border border-[#234B75] bg-[#123A63] p-5 transition duration-200 hover:-translate-y-1 hover:border-[#00A3E0] hover:shadow-[0_14px_28px_-12px_rgba(0,163,224,0.45)] motion-reduce:transition-none motion-reduce:hover:translate-y-0" name="cmu-contact">
+        <summary class="cursor-pointer rounded-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7FD4F5]">
+          <span class="block text-lg font-semibold text-white">Ma. Christine P. Cruz</span>
+          <span class="block text-sm text-[#9FD6F2]">Cost Management Specialist</span>
+          <span class="mt-4 block text-xs font-semibold text-[#9FD6F2]">Covers</span>
+          <span class="mt-2 flex flex-wrap gap-2"><span class="rounded-full border border-[#00A3E0]/40 bg-[#00A3E0]/15 px-2.5 py-1 text-[13px] leading-none text-[#CFEEFB]">GST-1 (DIV3)</span><span class="rounded-full border border-[#00A3E0]/40 bg-[#00A3E0]/15 px-2.5 py-1 text-[13px] leading-none text-[#CFEEFB]">GST-1 (DIV4)</span><span class="rounded-full border border-[#00A3E0]/40 bg-[#00A3E0]/15 px-2.5 py-1 text-[13px] leading-none text-[#CFEEFB]">GST-2 (DIV1)</span><span class="rounded-full border border-[#00A3E0]/40 bg-[#00A3E0]/15 px-2.5 py-1 text-[13px] leading-none text-[#CFEEFB]">GST-2 (DIV2)</span><span class="rounded-full border border-[#00A3E0]/40 bg-[#00A3E0]/15 px-2.5 py-1 text-[13px] leading-none text-[#CFEEFB]">GST-2 (DIV3)</span><span class="rounded-full border border-[#00A3E0]/40 bg-[#00A3E0]/15 px-2.5 py-1 text-[13px] leading-none text-[#CFEEFB]">GST-2 (DIV4)</span></span>
+          <span class="mt-4 flex items-center justify-between rounded-lg border border-[#3A6494] px-3.5 py-2.5 text-sm font-semibold text-white transition duration-150 group-hover:bg-white/10">
+            <span class="cmu-lbl-closed">Click to Contact</span>
+            <span class="cmu-lbl-open">Hide contact options</span>
+            <svg class="cmu-chevron" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </span>
+        </summary>
+        <div class="cmu-panel grid grid-cols-2 gap-2 pt-4">
+          <a class="inline-flex items-center justify-center gap-2 rounded-lg px-3.5 py-2.5 text-sm font-semibold no-underline transition duration-150 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7FD4F5] border border-[#4A76A8] bg-white/5 text-white hover:bg-white hover:text-[#0B2A4A]" href="mailto:christine.cruz@century-phirst.com" aria-label="Email Ma. Christine P. Cruz"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5h14a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2zm-2 2l9 6 9-6"/></svg><span>Email</span></a>
+          <a class="inline-flex items-center justify-center gap-2 rounded-lg px-3.5 py-2.5 text-sm font-semibold no-underline transition duration-150 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7FD4F5] border border-transparent bg-[#00A3E0] text-[#0B2A4A] hover:bg-[#4CC3F0]" href="viber://chat?number=%2B639202538308" aria-label="Chat with Ma. Christine P. Cruz on Viber"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 10h.01M12 10h.01M16 10h.01M21 12c0 4.418-4.03 8-9 8a9.86 9.86 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg><span>Viber chat</span></a>
         </div>
-      </article>
-      <article class="flex flex-col rounded-2xl border border-[#234B75] bg-[#123A63] p-5 transition duration-200 hover:-translate-y-1 hover:border-[#00A3E0] hover:shadow-[0_14px_28px_-12px_rgba(0,163,224,0.45)] motion-reduce:transition-none motion-reduce:hover:translate-y-0">
-        <h4 class="text-lg font-semibold text-white">Ronalyn De Villa</h4>
-        <p class="text-sm text-[#9FD6F2]">Cost Management Specialist</p>
-        <p class="mt-4 text-xs font-semibold text-[#9FD6F2]">Covers</p>
-        <ul class="mt-2 flex flex-wrap gap-2" aria-label="Groups covered by Ronalyn De Villa"><li class="rounded-full border border-[#00A3E0]/40 bg-[#00A3E0]/15 px-2.5 py-1 text-[13px] leading-none text-[#CFEEFB]">IST</li><li class="rounded-full border border-[#00A3E0]/40 bg-[#00A3E0]/15 px-2.5 py-1 text-[13px] leading-none text-[#CFEEFB]">BST</li><li class="rounded-full border border-[#00A3E0]/40 bg-[#00A3E0]/15 px-2.5 py-1 text-[13px] leading-none text-[#CFEEFB]">CST</li></ul>
-        <div class="mt-auto pt-5">
-          <div class="grid grid-cols-2 gap-2">
-            <a class="inline-flex items-center justify-center gap-2 rounded-lg px-3.5 py-2.5 text-sm font-semibold no-underline transition duration-150 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7FD4F5] border border-[#4A76A8] bg-white/5 text-white hover:bg-white hover:text-[#0B2A4A]" href="mailto:ronalyn.devilla@century-phirst.com" aria-label="Email Ronalyn De Villa"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5h14a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2zm-2 2l9 6 9-6"/></svg><span>Email</span></a>
-            <!-- Viber deep link: opens the Viber app (mobile or desktop) on a chat with this number -->
-            <a class="inline-flex items-center justify-center gap-2 rounded-lg px-3.5 py-2.5 text-sm font-semibold no-underline transition duration-150 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7FD4F5] border border-transparent bg-[#00A3E0] text-[#0B2A4A] hover:bg-[#4CC3F0]" href="viber://chat?number=%2B639497994308" aria-label="Chat with Ronalyn De Villa on Viber"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 10h.01M12 10h.01M16 10h.01M21 12c0 4.418-4.03 8-9 8a9.86 9.86 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg><span>Viber chat</span></a>
-          </div>
-          <p class="mt-3 text-[13px] text-[#B8CCE3]">ronalyn.devilla@century-phirst.com<br>Viber: +63 949 799 4308</p>
+      </details>
+      <details class="cmu-contact group rounded-2xl border border-[#234B75] bg-[#123A63] p-5 transition duration-200 hover:-translate-y-1 hover:border-[#00A3E0] hover:shadow-[0_14px_28px_-12px_rgba(0,163,224,0.45)] motion-reduce:transition-none motion-reduce:hover:translate-y-0" name="cmu-contact">
+        <summary class="cursor-pointer rounded-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7FD4F5]">
+          <span class="block text-lg font-semibold text-white">Ronalyn De Villa</span>
+          <span class="block text-sm text-[#9FD6F2]">Cost Management Specialist</span>
+          <span class="mt-4 block text-xs font-semibold text-[#9FD6F2]">Covers</span>
+          <span class="mt-2 flex flex-wrap gap-2"><span class="rounded-full border border-[#00A3E0]/40 bg-[#00A3E0]/15 px-2.5 py-1 text-[13px] leading-none text-[#CFEEFB]">IST</span><span class="rounded-full border border-[#00A3E0]/40 bg-[#00A3E0]/15 px-2.5 py-1 text-[13px] leading-none text-[#CFEEFB]">BST</span><span class="rounded-full border border-[#00A3E0]/40 bg-[#00A3E0]/15 px-2.5 py-1 text-[13px] leading-none text-[#CFEEFB]">CST</span></span><span class="rounded-full border border-[#00A3E0]/40 bg-[#00A3E0]/15 px-2.5 py-1 text-[13px] leading-none text-[#CFEEFB]">DST</span>
+          <span class="mt-4 flex items-center justify-between rounded-lg border border-[#3A6494] px-3.5 py-2.5 text-sm font-semibold text-white transition duration-150 group-hover:bg-white/10">
+            <span class="cmu-lbl-closed">Click to Contact</span>
+            <span class="cmu-lbl-open">Hide contact options</span>
+            <svg class="cmu-chevron" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </span>
+        </summary>
+        <div class="cmu-panel grid grid-cols-2 gap-2 pt-4">
+          <a class="inline-flex items-center justify-center gap-2 rounded-lg px-3.5 py-2.5 text-sm font-semibold no-underline transition duration-150 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7FD4F5] border border-[#4A76A8] bg-white/5 text-white hover:bg-white hover:text-[#0B2A4A]" href="mailto:ronalyn.devilla@century-phirst.com" aria-label="Email Ronalyn De Villa"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5h14a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2zm-2 2l9 6 9-6"/></svg><span>Email</span></a>
+          <a class="inline-flex items-center justify-center gap-2 rounded-lg px-3.5 py-2.5 text-sm font-semibold no-underline transition duration-150 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7FD4F5] border border-transparent bg-[#00A3E0] text-[#0B2A4A] hover:bg-[#4CC3F0]" href="viber://chat?number=%2B639497994308" aria-label="Chat with Ronalyn De Villa on Viber"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 10h.01M12 10h.01M16 10h.01M21 12c0 4.418-4.03 8-9 8a9.86 9.86 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg><span>Viber chat</span></a>
         </div>
-      </article>
+      </details>
       </div>
     </section>
 
     <!-- ===== LEADERSHIP & ESCALATION ===== -->
     <section aria-labelledby="leadership-title" class="mt-12">
       <h3 id="leadership-title" class="mb-4 text-lg font-semibold text-white">Leadership &amp; Escalation</h3>
-      <div class="grid gap-5 md:grid-cols-2">
-      <article class="flex flex-col rounded-2xl border border-[#234B75] bg-[#123A63] p-5 transition duration-200 hover:-translate-y-1 hover:border-[#00A3E0] hover:shadow-[0_14px_28px_-12px_rgba(0,163,224,0.45)] motion-reduce:transition-none motion-reduce:hover:translate-y-0">
-        <h4 class="text-lg font-semibold text-white">Manuel S Yu</h4>
-        <p class="text-sm text-[#9FD6F2]">Cost Management Supervisor</p>
-        <div class="mt-auto pt-5">
-          <div class="grid grid-cols-2 gap-2">
-            <a class="inline-flex items-center justify-center gap-2 rounded-lg px-3.5 py-2.5 text-sm font-semibold no-underline transition duration-150 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7FD4F5] border border-[#4A76A8] bg-white/5 text-white hover:bg-white hover:text-[#0B2A4A]" href="mailto:manuel.yujr@century-phirst.com" aria-label="Email Manuel S Yu"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5h14a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2zm-2 2l9 6 9-6"/></svg><span>Email</span></a>
-            <!-- Viber deep link: opens the Viber app (mobile or desktop) on a chat with this number -->
-            <a class="inline-flex items-center justify-center gap-2 rounded-lg px-3.5 py-2.5 text-sm font-semibold no-underline transition duration-150 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7FD4F5] border border-transparent bg-[#00A3E0] text-[#0B2A4A] hover:bg-[#4CC3F0]" href="viber://chat?number=%2B639120791593" aria-label="Chat with Manuel S Yu on Viber"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 10h.01M12 10h.01M16 10h.01M21 12c0 4.418-4.03 8-9 8a9.86 9.86 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg><span>Viber chat</span></a>
-          </div>
-          <p class="mt-3 text-[13px] text-[#B8CCE3]">manuel.yujr@century-phirst.com<br>Viber: +63 912 079 1593</p>
+      <div class="grid items-start gap-5 md:grid-cols-2">
+      <details class="cmu-contact group rounded-2xl border border-[#234B75] bg-[#123A63] p-5 transition duration-200 hover:-translate-y-1 hover:border-[#00A3E0] hover:shadow-[0_14px_28px_-12px_rgba(0,163,224,0.45)] motion-reduce:transition-none motion-reduce:hover:translate-y-0" name="cmu-contact">
+        <summary class="cursor-pointer rounded-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7FD4F5]">
+          <span class="block text-lg font-semibold text-white">Manuel S Yu</span>
+          <span class="block text-sm text-[#9FD6F2]">Cost Management Supervisor</span>
+          <span class="mt-4 flex items-center justify-between rounded-lg border border-[#3A6494] px-3.5 py-2.5 text-sm font-semibold text-white transition duration-150 group-hover:bg-white/10">
+            <span class="cmu-lbl-closed">Click to Contact</span>
+            <span class="cmu-lbl-open">Hide contact options</span>
+            <svg class="cmu-chevron" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </span>
+        </summary>
+        <div class="cmu-panel grid grid-cols-2 gap-2 pt-4">
+          <a class="inline-flex items-center justify-center gap-2 rounded-lg px-3.5 py-2.5 text-sm font-semibold no-underline transition duration-150 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7FD4F5] border border-[#4A76A8] bg-white/5 text-white hover:bg-white hover:text-[#0B2A4A]" href="mailto:manuel.yujr@century-phirst.com" aria-label="Email Manuel S Yu"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5h14a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2zm-2 2l9 6 9-6"/></svg><span>Email</span></a>
+          <a class="inline-flex items-center justify-center gap-2 rounded-lg px-3.5 py-2.5 text-sm font-semibold no-underline transition duration-150 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7FD4F5] border border-transparent bg-[#00A3E0] text-[#0B2A4A] hover:bg-[#4CC3F0]" href="viber://chat?number=%2B639120791593" aria-label="Chat with Manuel S Yu on Viber"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 10h.01M12 10h.01M16 10h.01M21 12c0 4.418-4.03 8-9 8a9.86 9.86 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg><span>Viber chat</span></a>
         </div>
-      </article>
-      <article class="flex flex-col rounded-2xl border border-[#234B75] bg-[#123A63] p-5 transition duration-200 hover:-translate-y-1 hover:border-[#00A3E0] hover:shadow-[0_14px_28px_-12px_rgba(0,163,224,0.45)] motion-reduce:transition-none motion-reduce:hover:translate-y-0">
-        <h4 class="text-lg font-semibold text-white">Sharlene Sia Co</h4>
-        <p class="text-sm text-[#9FD6F2]">Sales Channel Support Head</p>
-        <div class="mt-auto pt-5">
-          <div class="grid grid-cols-2 gap-2">
-            <a class="inline-flex items-center justify-center gap-2 rounded-lg px-3.5 py-2.5 text-sm font-semibold no-underline transition duration-150 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7FD4F5] border border-[#4A76A8] bg-white/5 text-white hover:bg-white hover:text-[#0B2A4A]" href="mailto:sharlene.co@century-phirst.com" aria-label="Email Sharlene Sia Co"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5h14a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2zm-2 2l9 6 9-6"/></svg><span>Email</span></a>
-            <!-- Viber deep link: opens the Viber app (mobile or desktop) on a chat with this number -->
-            <a class="inline-flex items-center justify-center gap-2 rounded-lg px-3.5 py-2.5 text-sm font-semibold no-underline transition duration-150 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7FD4F5] border border-transparent bg-[#00A3E0] text-[#0B2A4A] hover:bg-[#4CC3F0]" href="viber://chat?number=%2B639178103648" aria-label="Chat with Sharlene Sia Co on Viber"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 10h.01M12 10h.01M16 10h.01M21 12c0 4.418-4.03 8-9 8a9.86 9.86 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg><span>Viber chat</span></a>
-          </div>
-          <p class="mt-3 text-[13px] text-[#B8CCE3]">sharlene.co@century-phirst.com<br>Viber: +63 917 810 3648</p>
+      </details>
+      <details class="cmu-contact group rounded-2xl border border-[#234B75] bg-[#123A63] p-5 transition duration-200 hover:-translate-y-1 hover:border-[#00A3E0] hover:shadow-[0_14px_28px_-12px_rgba(0,163,224,0.45)] motion-reduce:transition-none motion-reduce:hover:translate-y-0" name="cmu-contact">
+        <summary class="cursor-pointer rounded-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7FD4F5]">
+          <span class="block text-lg font-semibold text-white">Sharlene Sia Co</span>
+          <span class="block text-sm text-[#9FD6F2]">Sales Channel Support Head</span>
+          <span class="mt-4 flex items-center justify-between rounded-lg border border-[#3A6494] px-3.5 py-2.5 text-sm font-semibold text-white transition duration-150 group-hover:bg-white/10">
+            <span class="cmu-lbl-closed">Click to Contact</span>
+            <span class="cmu-lbl-open">Hide contact options</span>
+            <svg class="cmu-chevron" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </span>
+        </summary>
+        <div class="cmu-panel grid grid-cols-2 gap-2 pt-4">
+          <a class="inline-flex items-center justify-center gap-2 rounded-lg px-3.5 py-2.5 text-sm font-semibold no-underline transition duration-150 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7FD4F5] border border-[#4A76A8] bg-white/5 text-white hover:bg-white hover:text-[#0B2A4A]" href="mailto:sharlene.co@century-phirst.com" aria-label="Email Sharlene Sia Co"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5h14a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2zm-2 2l9 6 9-6"/></svg><span>Email</span></a>
+          <a class="inline-flex items-center justify-center gap-2 rounded-lg px-3.5 py-2.5 text-sm font-semibold no-underline transition duration-150 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7FD4F5] border border-transparent bg-[#00A3E0] text-[#0B2A4A] hover:bg-[#4CC3F0]" href="viber://chat?number=%2B639178103648" aria-label="Chat with Sharlene Sia Co on Viber"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 10h.01M12 10h.01M16 10h.01M21 12c0 4.418-4.03 8-9 8a9.86 9.86 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg><span>Viber chat</span></a>
         </div>
-      </article>
+      </details>
       </div>
     </section>
 
@@ -470,7 +485,7 @@
     <div class="mt-12 grid gap-4 pt-6 text-[15px] sm:grid-cols-2" style="border-top:1px solid #234B75; color:#E3ECF8;">
       <p>
         <span class="font-semibold text-white">Viber community:</span><br>
-        <a class="underline" style="color:#9FD6F2;" href="https://invite.viber.com/?g2=AQA8MQZ9AbqvdleBu0IoM8EjB3OXoBCwe20NuBTAJNZS9yK8RGVNQovg%2BOxHVBTX&lang=en">CMU Seller Advisories (Portal)</a>
+        <a class="underline" style="color:#9FD6F2;" href="https://invite.viber.com/?g2=AQBj6IiEQi0EwlNNTWxnShcGWwETS52qK%2BXE9O8KouSfCvDVAc1dpda7WPL%2BeAVn" target="_blank" rel="noopener noreferrer">CMU Seller Advisories (Portal)</a>
       </p>
       <p>
         <span class="font-semibold text-white">Support hours:</span><br>
@@ -482,6 +497,39 @@
       Cost Management Unit (CMU) Service Portal
     </p>
   </div>
+
+  <!-- Contact accordion styles -->
+  <style>
+    .cmu-contact > summary { list-style: none; }
+    .cmu-contact > summary::-webkit-details-marker { display: none; }
+    .cmu-contact .cmu-lbl-open { display: none; }
+    .cmu-contact[open] .cmu-lbl-open { display: inline; }
+    .cmu-contact[open] .cmu-lbl-closed { display: none; }
+    .cmu-contact[open] { border-color: #00A3E0; }
+    .cmu-chevron { transition: transform .2s ease; }
+    .cmu-contact[open] .cmu-chevron { transform: rotate(180deg); }
+    .cmu-contact[open] .cmu-panel { animation: cmuFade .18s ease-out; }
+    @keyframes cmuFade { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: none; } }
+    @media (prefers-reduced-motion: reduce) {
+      .cmu-chevron { transition: none; }
+      .cmu-contact[open] .cmu-panel { animation: none; }
+    }
+  </style>
+
+  <!-- Accordion: only one contact card open at a time; click again to close -->
+  <script>
+    (function () {
+      var cards = document.querySelectorAll('details.cmu-contact');
+      cards.forEach(function (card) {
+        card.addEventListener('toggle', function () {
+          if (!card.open) return;
+          cards.forEach(function (other) {
+            if (other !== card) other.open = false;
+          });
+        });
+      });
+    })();
+  </script>
 </footer>
 
 </body>
