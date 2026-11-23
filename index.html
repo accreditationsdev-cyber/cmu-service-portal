@@ -1,1 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cost Management Unit (CMU) Service Portal</title>
+
+<!-- Tailwind CSS via CDN (utility classes) -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+  :root {
+    --navy: #0B2A4A;
+    --blue: #1D5FD1;
+    --blue-dark: #174BA8;
+    --blue-soft: #EAF2FD;
+    --cyan: #00A3E0;
+    --ink: #1E293B;
+    --gray: #475569;
+    --line: #DCE4EE;
+    --page: #F4F7FB;
+  }
+
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--page);
+    color: var(--ink);
+    font-family: "Segoe UI", Inter, system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Cards: lift + shadow on hover */
+  .cmu-card {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    box-shadow: 0 1px 2px rgba(11, 42, 74, .06);
+    transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+  }
+  .cmu-card:hover,
+  .cmu-card:focus-within {
+    transform: translateY(-4px);
+    border-color: #B9CDEA;
+    box-shadow: 0 14px 28px -10px rgba(29, 95, 209, .28);
+  }
+  /* Card for a service that is not open yet: no lift, muted look */
+  .cmu-card-off { background: #F8FAFC; }
+  .cmu-card-off:hover, .cmu-card-off:focus-within {
+    transform: none; border-color: var(--line); box-shadow: 0 1px 2px rgba(11, 42, 74, .06);
+  }
+
+  /* Call-to-action buttons */
+  .cmu-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+    padding: .65rem 1.1rem;
+    border: 1.5px solid transparent;
+    border-radius: 10px;
+    background: var(--blue);
+    color: #fff;
+    font: inherit;
+    font-weight: 600;
+    font-size: .925rem;
+    line-height: 1.3;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background .15s ease, transform .15s ease;
+  }
+  .cmu-btn:hover { background: var(--blue-dark); transform: translateY(-1px); }
+  .cmu-btn:active { transform: translateY(0); }
+  .cmu-btn-outline {
+    background: #fff;
+    color: var(--blue);
+    border-color: #B9CDEA;
+  }
+  .cmu-btn-outline:hover { background: var(--blue-soft); border-color: var(--blue); }
+
+  /* Disabled / coming soon */
+  .cmu-btn:disabled {
+    background: #E2E8F0;
+    color: #64748B;
+    border-color: #CBD5E1;
+    border-style: dashed;
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  .cmu-btn:focus-visible,
+  .cmu-link:focus-visible,
+  summary:focus-visible {
+    outline: 3px solid var(--cyan);
+    outline-offset: 2px;
+  }
+
+  .cmu-icon {
+    width: 44px; height: 44px;
+    border-radius: 12px;
+    background: var(--blue-soft);
+    color: var(--blue);
+    display: grid; place-items: center;
+    flex-shrink: 0;
+  }
+  .cmu-card-off .cmu-icon { background: #E2E8F0; color: #64748B; }
+
+  .cmu-link { color: var(--blue); font-weight: 600; text-decoration: none; }
+  .cmu-link:hover { text-decoration: underline; }
+
+  /* QR toggle (<details>) */
+  details.cmu-qr > summary { list-style: none; }
+  details.cmu-qr > summary::-webkit-details-marker { display: none; }
+  details.cmu-qr[open] > summary { background: var(--blue-soft); border-color: var(--blue); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .cmu-card, .cmu-btn { transition: none; }
+    .cmu-card:hover, .cmu-card:focus-within, .cmu-btn:hover { transform: none; }
+  }
+</style>
+</head>
+
+<body>
+
+<!-- ============================ HERO ============================ -->
+<header style="background: var(--navy);" class="px-5 pt-14 pb-28 sm:px-8 sm:pt-20 sm:pb-32">
+  <div class="mx-auto max-w-5xl">
+    <h1 class="text-3xl sm:text-5xl font-bold text-white leading-tight tracking-tight max-w-3xl">
+      Cost Management Unit (CMU) Service Portal
+    </h1>
+    <p class="mt-5 text-base sm:text-lg max-w-2xl" style="color:#C7D8EE;">
+      Centralized request hub for Mobilization Funds, Account Enrollments, 2307 Releasing, and Travel Operations.
+    </p>
+  </div>
+</header>
+
+<main class="mx-auto max-w-5xl px-5 sm:px-8 pb-16">
+
+  <!-- ===================== LATEST TEAM UPDATES + CUT-OFF NOTICE ===================== -->
+  <section aria-labelledby="updates-title" class="-mt-16 mb-14 space-y-5">
+
+    <!-- Latest Team Updates -->
+    <div class="rounded-2xl bg-white overflow-hidden"
+         style="border:1px solid var(--line); border-left:6px solid var(--cyan); box-shadow:0 12px 30px -12px rgba(11,42,74,.30);">
+      <div class="p-6 sm:p-8">
+        <div class="flex items-center gap-3 mb-4">
+          <span class="inline-block rounded-full px-3 py-1 text-xs font-bold text-white" style="background:var(--cyan);">New</span>
+          <h2 id="updates-title" class="text-xl sm:text-2xl font-bold" style="color:var(--navy);">Latest Team Updates</h2>
+        </div>
+
+        <!-- To add another update, copy this <li> block -->
+        <ul class="space-y-3 text-[15px]" style="color:var(--gray);">
+          <li class="flex gap-3">
+            <span class="mt-2 h-2 w-2 rounded-full flex-shrink-0" style="background:var(--cyan);"></span>
+            <span><strong style="color:var(--ink);">October 2026</strong> &ndash; Now Live: Streamlined Mobilization Fund processing and Account Enrollment workflows.</span>
+          </li>
+        </ul>
+
+        <!-- MF Walkthrough Guide -->
+        <div class="mt-6 pt-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4" style="border-top:1px solid var(--line);">
+          <p class="text-[15px]" style="color:var(--gray);">
+            <strong style="color:var(--ink);">MF Walkthrough Guide:</strong> a step-by-step look at how the MF process works.
+          </p>
+          <a class="cmu-btn flex-shrink-0" href="https://mf-process-timeline.my.canva.site/untitled-app" target="_blank" rel="noopener noreferrer">View MF Process Walkthrough</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cut-Off Notice: easy to edit, see the marked lines below -->
+    <div role="status" aria-label="Cut-off notice" class="rounded-2xl p-5 sm:p-6 flex gap-4 items-start"
+         style="background:#FFF7E0; border:1px solid #F5C451; border-left:6px solid #F59E0B;">
+      <div>
+        <!-- ===== EDIT THE CUT-OFF TEXT BELOW (keep the tags, change only the words) ===== -->
+        <p class="text-[15px] sm:text-base font-semibold" style="color:#5B4106;">
+          &#9888;&#65039; Cut-Off Notice: October 9 cut-off for October 20 processing.
+        </p>
+        <p class="mt-1 text-sm" style="color:#7A5A12;">
+          (Standard cut-offs occur every 5th and 20th of the month).
+        </p>
+        <!-- ===== END OF EDITABLE CUT-OFF TEXT ===== -->
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ===================== PHASE 1 ===================== -->
+  <section aria-labelledby="phase1-title" class="mb-14">
+    <div class="mb-6">
+      <h2 id="phase1-title" class="text-2xl font-bold" style="color:var(--navy);">Phase 1: Prerequisites</h2>
+      <p class="mt-1 text-[15px]" style="color:var(--gray);">Complete these first. Later requests depend on them.</p>
+    </div>
+
+    <div class="grid gap-6 sm:grid-cols-2">
+
+      <!-- Account Enrollment (CBS + BDO) -->
+      <article class="cmu-card p-6 flex flex-col">
+        <div class="flex items-start gap-4">
+          <div class="cmu-icon" aria-hidden="true">
+            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"/></svg>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold" style="color:var(--navy);">Account Enrollment Form</h3>
+            <p class="mt-1 text-[15px]" style="color:var(--gray);">Enroll your account with CBS or BDO so it is ready for processing.</p>
+          </div>
+        </div>
+
+        <div class="mt-6 flex flex-wrap gap-3">
+          <a class="cmu-btn" href="https://forms.gle/87GYixMr68GcSB3Y9" target="_blank" rel="noopener noreferrer">CBS Enrollment</a>
+          <a class="cmu-btn" href="https://forms.gle/kRvV4m6T58PvrrPi7" target="_blank" rel="noopener noreferrer">BDO Enrollment</a>
+        </div>
+
+        <!-- CBS QR code (works offline, no external image) -->
+        <details class="cmu-qr mt-4">
+          <summary class="cmu-btn cmu-btn-outline w-full sm:w-auto">Show QR code for CBS Enrollment</summary>
+          <div class="mt-4 flex items-center gap-4 rounded-xl p-4" style="background:var(--blue-soft);">
+            <div class="flex-shrink-0 rounded-lg bg-white p-2" style="width:148px;height:148px;">
+              <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="-4 -4 37 37" shape-rendering="crispEdges" role="img" aria-label="QR code for the CBS Enrollment form"><rect x="-4" y="-4" width="37" height="37" fill="#fff"/><path fill="#0B2A4A" d="M0 0h7v1h-7zM9 0h1v1h-1zM12 0h1v1h-1zM15 0h6v1h-6zM22 0h7v1h-7zM0 1h1v1h-1zM6 1h1v1h-1zM9 1h3v1h-3zM18 1h1v1h-1zM20 1h1v1h-1zM22 1h1v1h-1zM28 1h1v1h-1zM0 2h1v1h-1zM2 2h3v1h-3zM6 2h1v1h-1zM8 2h2v1h-2zM11 2h1v1h-1zM14 2h1v1h-1zM16 2h1v1h-1zM22 2h1v1h-1zM24 2h3v1h-3zM28 2h1v1h-1zM0 3h1v1h-1zM2 3h3v1h-3zM6 3h1v1h-1zM8 3h2v1h-2zM17 3h1v1h-1zM19 3h2v1h-2zM22 3h1v1h-1zM24 3h3v1h-3zM28 3h1v1h-1zM0 4h1v1h-1zM2 4h3v1h-3zM6 4h1v1h-1zM8 4h3v1h-3zM12 4h4v1h-4zM17 4h1v1h-1zM20 4h1v1h-1zM22 4h1v1h-1zM24 4h3v1h-3zM28 4h1v1h-1zM0 5h1v1h-1zM6 5h1v1h-1zM8 5h3v1h-3zM13 5h4v1h-4zM18 5h1v1h-1zM20 5h1v1h-1zM22 5h1v1h-1zM28 5h1v1h-1zM0 6h7v1h-7zM8 6h1v1h-1zM10 6h1v1h-1zM12 6h1v1h-1zM14 6h1v1h-1zM16 6h1v1h-1zM18 6h1v1h-1zM20 6h1v1h-1zM22 6h7v1h-7zM8 7h1v1h-1zM11 7h1v1h-1zM13 7h1v1h-1zM15 7h1v1h-1zM18 7h3v1h-3zM0 8h1v1h-1zM2 8h5v1h-5zM9 8h1v1h-1zM11 8h2v1h-2zM14 8h1v1h-1zM16 8h1v1h-1zM22 8h5v1h-5zM0 9h1v1h-1zM2 9h1v1h-1zM4 9h1v1h-1zM9 9h1v1h-1zM12 9h1v1h-1zM17 9h2v1h-2zM20 9h1v1h-1zM22 9h3v1h-3zM28 9h1v1h-1zM1 10h1v1h-1zM5 10h2v1h-2zM9 10h2v1h-2zM12 10h1v1h-1zM15 10h2v1h-2zM20 10h2v1h-2zM23 10h2v1h-2zM0 11h1v1h-1zM3 11h2v1h-2zM7 11h4v1h-4zM12 11h1v1h-1zM14 11h2v1h-2zM19 11h2v1h-2zM22 11h2v1h-2zM25 11h1v1h-1zM27 11h1v1h-1zM0 12h1v1h-1zM2 12h1v1h-1zM4 12h1v1h-1zM6 12h1v1h-1zM8 12h2v1h-2zM11 12h1v1h-1zM16 12h2v1h-2zM20 12h2v1h-2zM25 12h2v1h-2zM0 13h1v1h-1zM2 13h2v1h-2zM5 13h1v1h-1zM10 13h1v1h-1zM12 13h5v1h-5zM19 13h1v1h-1zM21 13h4v1h-4zM28 13h1v1h-1zM3 14h5v1h-5zM11 14h8v1h-8zM22 14h1v1h-1zM25 14h2v1h-2zM7 15h1v1h-1zM10 15h4v1h-4zM18 15h1v1h-1zM21 15h2v1h-2zM24 15h1v1h-1zM27 15h1v1h-1zM2 16h1v1h-1zM4 16h4v1h-4zM9 16h4v1h-4zM14 16h7v1h-7zM23 16h1v1h-1zM25 16h2v1h-2zM0 17h2v1h-2zM3 17h3v1h-3zM7 17h2v1h-2zM19 17h1v1h-1zM21 17h4v1h-4zM26 17h1v1h-1zM28 17h1v1h-1zM0 18h1v1h-1zM2 18h2v1h-2zM6 18h1v1h-1zM11 18h2v1h-2zM15 18h1v1h-1zM17 18h1v1h-1zM20 18h1v1h-1zM23 18h1v1h-1zM26 18h1v1h-1zM0 19h1v1h-1zM3 19h2v1h-2zM9 19h1v1h-1zM14 19h1v1h-1zM18 19h3v1h-3zM22 19h2v1h-2zM27 19h1v1h-1zM0 20h1v1h-1zM6 20h1v1h-1zM9 20h1v1h-1zM15 20h1v1h-1zM17 20h8v1h-8zM26 20h3v1h-3zM8 21h1v1h-1zM11 21h7v1h-7zM20 21h1v1h-1zM24 21h5v1h-5zM0 22h7v1h-7zM10 22h1v1h-1zM12 22h5v1h-5zM18 22h3v1h-3zM22 22h1v1h-1zM24 22h3v1h-3zM0 23h1v1h-1zM6 23h1v1h-1zM8 23h1v1h-1zM11 23h1v1h-1zM13 23h1v1h-1zM18 23h1v1h-1zM20 23h1v1h-1zM24 23h1v1h-1zM28 23h1v1h-1zM0 24h1v1h-1zM2 24h3v1h-3zM6 24h1v1h-1zM8 24h2v1h-2zM14 24h3v1h-3zM20 24h5v1h-5zM26 24h2v1h-2zM0 25h1v1h-1zM2 25h3v1h-3zM6 25h1v1h-1zM8 25h3v1h-3zM12 25h2v1h-2zM15 25h2v1h-2zM18 25h2v1h-2zM25 25h4v1h-4zM0 26h1v1h-1zM2 26h3v1h-3zM6 26h1v1h-1zM8 26h1v1h-1zM10 26h1v1h-1zM15 26h3v1h-3zM19 26h1v1h-1zM21 26h7v1h-7zM0 27h1v1h-1zM6 27h1v1h-1zM12 27h1v1h-1zM20 27h1v1h-1zM22 27h1v1h-1zM25 27h1v1h-1zM27 27h1v1h-1zM0 28h7v1h-7zM8 28h1v1h-1zM11 28h1v1h-1zM13 28h3v1h-3zM17 28h1v1h-1zM19 28h1v1h-1zM21 28h1v1h-1zM23 28h2v1h-2zM26 28h1v1h-1z"/></svg>
+            </div>
+            <p class="text-sm" style="color:var(--gray);">
+              Scan with your phone camera to open the CBS Enrollment form.
+            </p>
+          </div>
+        </details>
+      </article>
+
+      <!-- Inventory -->
+      <article class="cmu-card p-6 flex flex-col">
+        <div class="flex items-start gap-4">
+          <div class="cmu-icon" aria-hidden="true">
+            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold" style="color:var(--navy);">Inventory Form</h3>
+            <p class="mt-1 text-[15px]" style="color:var(--gray);">Submit or update your inventory details before filing core requests.</p>
+          </div>
+        </div>
+        <div class="mt-auto pt-6">
+          <a class="cmu-btn" href="https://forms.gle/fcihfJvN8UmLLJRY8" target="_blank" rel="noopener noreferrer">Open inventory form</a>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ===================== PHASE 2 ===================== -->
+  <section aria-labelledby="phase2-title" class="mb-14">
+    <div class="mb-6">
+      <h2 id="phase2-title" class="text-2xl font-bold" style="color:var(--navy);">Phase 2: Core Operations</h2>
+      <p class="mt-1 text-[15px]" style="color:var(--gray);">Day-to-day requests for funds, travel, and incentives.</p>
+    </div>
+
+    <div class="grid gap-6 sm:grid-cols-2">
+
+      <!-- Mobilization Fund (wide card with four steps) -->
+      <article class="cmu-card p-6 sm:col-span-2">
+        <div class="flex items-start gap-4">
+          <div class="cmu-icon" aria-hidden="true">
+            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold" style="color:var(--navy);">Mobilization Fund (MF) Processing</h3>
+            <p class="mt-1 text-[15px]" style="color:var(--gray);">Choose the step you need for your mobilization fund.</p>
+          </div>
+        </div>
+
+        <div class="mt-6 grid gap-3 sm:grid-cols-2">
+          <a class="cmu-btn cmu-btn-outline" href="https://accreditationsdev-cyber.github.io/mobilization-calendar/" target="_blank" rel="noopener noreferrer">MF Calendar</a>
+          <a class="cmu-btn cmu-btn-outline" href="https://forms.gle/NGrmq47CUGMei1Bb8" target="_blank" rel="noopener noreferrer">Request to Applied from MF Billing</a>
+          <a class="cmu-btn cmu-btn-outline" href="https://forms.gle/Sfkqo8ZJMkBLL97s9" target="_blank" rel="noopener noreferrer">MF Request for Hold</a>
+          <button type="button" class="cmu-btn cmu-btn-outline" disabled aria-disabled="true">MF Clearance (Coming Soon)</button>
+        </div>
+      </article>
+
+      <!-- Travel & Budget (combined) -->
+      <article class="cmu-card p-6 flex flex-col">
+        <div class="flex items-start gap-4">
+          <div class="cmu-icon" aria-hidden="true">
+            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold" style="color:var(--navy);">Travel &amp; Budget Requests / Liquidations</h3>
+            <p class="mt-1 text-[15px]" style="color:var(--gray);">Request travel and budget approval, and liquidate completed trips.</p>
+          </div>
+        </div>
+        <div class="mt-auto pt-6">
+          <a class="cmu-btn" href="https://forms.gle/UufKqoi1iVGBLJ2f9" target="_blank" rel="noopener noreferrer">Open travel &amp; budget form</a>
+        </div>
+      </article>
+
+      <!-- Incentives (not open yet) -->
+      <article class="cmu-card cmu-card-off p-6 flex flex-col">
+        <div class="flex items-start gap-4">
+          <div class="cmu-icon" aria-hidden="true">
+            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/></svg>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold" style="color:var(--gray);">Incentives Processing</h3>
+            <p class="mt-1 text-[15px]" style="color:var(--gray);">This form is under maintenance and not yet open for requests.</p>
+          </div>
+        </div>
+        <div class="mt-auto pt-6">
+          <button type="button" class="cmu-btn" disabled aria-disabled="true">Coming Soon / Under Maintenance</button>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ===================== PHASE 3 ===================== -->
+  <section aria-labelledby="phase3-title" class="mb-4">
+    <div class="mb-6">
+      <h2 id="phase3-title" class="text-2xl font-bold" style="color:var(--navy);">Phase 3: Compliance</h2>
+      <p class="mt-1 text-[15px]" style="color:var(--gray);">Tax documents and compliance requests.</p>
+    </div>
+
+    <!-- Side by side on desktop (md and up), stacked on mobile -->
+    <div class="grid gap-6 md:grid-cols-2">
+
+      <!-- 2307 Releasing Requests -->
+      <article class="cmu-card p-6 flex flex-col">
+        <div class="flex items-start gap-4">
+          <div class="cmu-icon" aria-hidden="true">
+            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold" style="color:var(--navy);">2307 Releasing Requests</h3>
+            <p class="mt-1 text-[15px]" style="color:var(--gray);">Request the release of your BIR Form 2307 certificates.</p>
+          </div>
+        </div>
+        <div class="mt-auto pt-6">
+          <a class="cmu-btn" href="https://forms.gle/5JBH3ZNrsCqDkV3n6" target="_blank" rel="noopener noreferrer">Open 2307 request form</a>
+        </div>
+      </article>
+
+      <!-- Non-VAT Sworn Filing & Tax Reduction Assessment -->
+      <article class="cmu-card p-6 flex flex-col">
+        <div class="flex items-start gap-4">
+          <div class="cmu-icon" aria-hidden="true">
+            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold" style="color:var(--navy);">Non-VAT Sworn Filing &amp; Tax Reduction Assessment</h3>
+            <p class="mt-1 text-[15px]" style="color:var(--gray);">Exclusively for Non-VAT Taxpayers applying for tax reduction.</p>
+          </div>
+        </div>
+
+        <!-- Timeline -->
+        <dl class="mt-5 space-y-2 rounded-xl p-4 text-[14px]" style="background:var(--blue-soft);">
+          <div>
+            <dt class="font-semibold" style="color:var(--navy);">Preparation &amp; Reminder Opt-In</dt>
+            <dd style="color:var(--gray);">November 2026</dd>
+          </div>
+          <div>
+            <dt class="font-semibold" style="color:var(--navy);">Filing &amp; Document Upload Window</dt>
+            <dd style="color:var(--gray);">January 1&ndash;15, 2027</dd>
+          </div>
+        </dl>
+
+        <!-- Workflow -->
+        <p class="mt-4 text-[14px]" style="color:var(--gray);">
+          <strong style="color:var(--ink);">Workflow:</strong>
+          Submit documents to Site Channels &rarr; Head Office (HO) Teams Assessment &rarr; Endorsement to Tax Team for Approved Application for Tax Reduction.
+        </p>
+
+        <!-- Action buttons -->
+        <div class="mt-auto pt-6 grid gap-3">
+          <!-- PASTE YOUR GOOGLE FORM LINK to replace GOOGLE_FORM_SWORN_REMINDER_LINK -->
+          <a class="cmu-btn" href="GOOGLE_FORM_SWORN_REMINDER_LINK" target="_blank" rel="noopener noreferrer">Sworn Filing Reminder &amp; Auto-Reply Sign-Up (Nov 2026)</a>
+          <!-- PASTE YOUR GOOGLE FORM LINK to replace GOOGLE_FORM_SWORN_SUBMISSION_LINK -->
+          <a class="cmu-btn" href="GOOGLE_FORM_SWORN_SUBMISSION_LINK" target="_blank" rel="noopener noreferrer">Sworn Filing Document Upload &amp; Assessment (Jan 1&ndash;15, 2027)</a>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+</main>
+
+<!-- ============================ FOOTER ============================ -->
+<footer style="background: var(--navy);" class="px-5 py-12 sm:px-8">
+  <div class="mx-auto max-w-5xl grid gap-8 sm:grid-cols-2">
+    <div>
+      <h2 class="text-xl font-bold text-white">Need help? Contact the CMU Specialist team</h2>
+      <p class="mt-2 text-[15px]" style="color:#C7D8EE;">Reach out if you can't find the right form or your request is stuck.</p>
+    </div>
+
+    <ul class="space-y-3 text-[15px]" style="color:#E3ECF8;">
+      <li>
+        <span class="font-semibold text-white">Email:</span>
+        <a class="underline" style="color:#9FD6F2;" href="mailto:kjmariquit@century-phirst.com">kjmariquit@century-phirst.com</a>
+      </li>
+      <li>
+        <span class="font-semibold text-white">Viber:</span>
+        <a class="underline" style="color:#9FD6F2;" href="https://invite.viber.com/?g2=AQBj6IiEQi0EwlNNTWxnShcGWwETS52qK%2BXE9O8KouSfCvDVAc1dpda7WPL%2BeAVn" target="_blank" rel="noopener noreferrer">Join the MF Community on Viber</a>
+      </li>
+      <li>
+        <span class="font-semibold text-white">Internal channel:</span>
+        <span>#cmu-support</span>
+      </li>
+      <li>
+        <span class="font-semibold text-white">Support hours:</span>
+        <span>Monday to Friday, 8:00 AM &ndash; 5:00 PM</span>
+      </li>
+    </ul>
+  </div>
+
+  <p class="mx-auto max-w-5xl mt-10 pt-6 text-sm" style="border-top:1px solid #234B75; color:#9DB4D0;">
+    Cost Management Unit (CMU) Service Portal
+  </p>
+</footer>
+
+</body>
+</html>
 
